@@ -1,23 +1,23 @@
 import random
 
 class Enemy:
-    def __init__(self, name, health, attack):
+    def __init__(self, name, health, attack, defense):
         self.name = name
         self.health = health
         self.attack = attack
+        self.defense = defense
+
+    def attack_damage(self):
+        return self.attack
+
+    def take_damage(self, damage):
+        self.health -= max(0, damage - self.defense)
 
     @staticmethod
     def random_enemy():
         enemies = [
-            ("Drone", 50, 10),
-            ("Soldier", 80, 15),
-            ("Tank", 120, 20)
+            Enemy("Rogue", 70, 15, 5),
+            Enemy("Soldier", 100, 20, 10),
+            Enemy("Heavy", 140, 25, 15)
         ]
-        e = random.choice(enemies)
-        return Enemy(e[0], e[1], e[2])
-
-    def attack_damage(self):
-        return random.randint(self.attack - 3, self.attack + 3)
-
-    def take_damage(self, dmg):
-        self.health -= dmg
+        return random.choice(enemies)

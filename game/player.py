@@ -1,5 +1,3 @@
-import random
-
 class Player:
     def __init__(self, name, health, attack, defense):
         self.name = name
@@ -8,8 +6,7 @@ class Player:
         self.defense = defense
 
     def attack_damage(self):
-        return random.randint(self.attack - 5, self.attack + 5)
+        return self.attack
 
-    def take_damage(self, dmg):
-        reduced = max(0, dmg - self.defense)
-        self.health -= reduced
+    def take_damage(self, damage):
+        self.health -= max(0, damage - self.defense)

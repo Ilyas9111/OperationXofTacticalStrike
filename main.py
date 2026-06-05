@@ -33,10 +33,8 @@ def fight(player, enemy):
         elif choice == "2":
             if potions > 0:
                 player.health += 25
-
                 if player.health > 100:
                     player.health = 100
-
                 potions -= 1
                 print("You healed 25 HP!")
             else:
@@ -77,15 +75,11 @@ def main():
 
     if character == "1":
         player = Player("Soldier", 100, 20, 10)
-
     elif character == "2":
         player = Player("Sniper", 80, 30, 5)
-
     elif character == "3":
         player = Player("Tank", 150, 15, 20)
-
     else:
-        print("Invalid choice, Soldier selected.")
         player = Player("Soldier", 100, 20, 10)
 
     while True:
@@ -121,8 +115,8 @@ def main():
                 print("No save file found!")
 
         elif choice == "4":
-            print("Goodbye!")
             break
 
-        else:
-            print("Invalid option!")
+
+if __name__ == "__main__":
+    main()
